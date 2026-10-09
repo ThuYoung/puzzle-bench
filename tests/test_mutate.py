@@ -2,8 +2,8 @@
 
 import pytest
 
-from hintbench.envs.debug import run_tests
-from hintbench.mutate import (
+from puzzlebench.envs.debug import run_tests
+from puzzlebench.mutate import (
     changed_region,
     filter_outcomes,
     generate_tasks,
@@ -12,7 +12,7 @@ from hintbench.mutate import (
     op_range_bound,
     op_return_swap,
 )
-from hintbench.seeds_debug import SEED_MEDIAN3, SEED_SUMRANGE, SEEDS
+from puzzlebench.seeds_debug import SEED_MEDIAN3, SEED_SUMRANGE, SEEDS
 
 
 @pytest.fixture(scope="module")

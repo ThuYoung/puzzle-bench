@@ -1,8 +1,8 @@
 """Sandbox worker tests: isolation, respawn, fidelity vs the in-process reference."""
 
-from hintbench.envs.debug import run_tests
-from hintbench.sandbox import SandboxRunner
-from hintbench.seeds_debug import SEED_SUMRANGE
+from puzzlebench.envs.debug import run_tests
+from puzzlebench.sandbox import SandboxRunner
+from puzzlebench.seeds_debug import SEED_SUMRANGE
 
 HANG_SRC = "def f(n):\n    while True:\n        pass\n"
 KILLER_SRC = "import os\nos._exit(0)\n"

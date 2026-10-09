@@ -1,8 +1,8 @@
 """Track B6 emergent-interaction tasks: partitions and env mechanics."""
 
-from hintbench.economy import Wallet
-from hintbench.envs.debug import DebugEnv, run_tests
-from hintbench.tasks_emergent import EMERGENT_TASKS
+from puzzlebench.economy import Wallet
+from puzzlebench.envs.debug import DebugEnv, run_tests
+from puzzlebench.tasks_emergent import EMERGENT_TASKS
 
 CREDIT, VOTED = EMERGENT_TASKS
 

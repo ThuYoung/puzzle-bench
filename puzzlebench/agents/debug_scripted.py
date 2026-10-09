@@ -11,8 +11,8 @@ from __future__ import annotations
 
 import random
 
-from hintbench.schema import EpisodeResult
-from hintbench.tasks_debug import DebugTask
+from puzzlebench.schema import EpisodeResult
+from puzzlebench.tasks_debug import DebugTask
 
 _SKILL_BUMP = {2: 0.25, 4: 0.25}
 

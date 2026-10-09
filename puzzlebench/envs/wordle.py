@@ -16,10 +16,10 @@ import unicodedata
 from collections import Counter
 from typing import Any
 
-from hintbench.economy import Wallet
-from hintbench.grader import grade
-from hintbench.schema import EpisodeResult, HintSpec, MilestoneSpec, PurchaseEvent, TaskSpec
-from hintbench.words import ANSWERS
+from puzzlebench.economy import Wallet
+from puzzlebench.grader import grade
+from puzzlebench.schema import EpisodeResult, HintSpec, MilestoneSpec, PurchaseEvent, TaskSpec
+from puzzlebench.words import ANSWERS
 
 CORRECT, PRESENT, ABSENT = "correct", "present", "absent"
 WORD_LENGTH = 5

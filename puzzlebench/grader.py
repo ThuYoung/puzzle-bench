@@ -10,7 +10,7 @@ model self-report.
 
 from __future__ import annotations
 
-from hintbench.schema import (
+from puzzlebench.schema import (
     EpisodeResult,
     MilestoneEvent,
     MilestoneSpec,

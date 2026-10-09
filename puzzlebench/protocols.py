@@ -10,7 +10,7 @@ from __future__ import annotations
 import asyncio
 from typing import Awaitable, Callable
 
-from hintbench.schema import EpisodeResult
+from puzzlebench.schema import EpisodeResult
 
 EnvFactory = Callable[[str, int, tuple[int, ...]], object]
 AgentFactory = Callable[[int], object]
@@ -38,7 +38,7 @@ async def run_protocol_a(
     gate = asyncio.Semaphore(concurrency)
 
     async def one(target: str, level: int, seed: int) -> tuple[tuple[str, int], EpisodeResult]:
-        from hintbench.economy import Wallet
+        from puzzlebench.economy import Wallet
 
         grants = tuple(lv for lv in ladder if lv <= level)
         env = env_factory(target, Wallet(0), grants)
@@ -66,7 +66,7 @@ async def run_protocol_b(
     Episodes within a run play sequentially so cross-puzzle allocation is a
     real decision; different seeds run concurrently.
     """
-    from hintbench.economy import Wallet
+    from puzzlebench.economy import Wallet
 
     async def one_seed(seed: int) -> list[tuple[str, EpisodeResult]]:
         wallet = Wallet(budget)

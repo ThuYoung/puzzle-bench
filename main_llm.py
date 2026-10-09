@@ -21,12 +21,12 @@ import sys
 import time
 from pathlib import Path
 
-from hintbench.agents.llm import LLMDebugAgent, ModelSpec, load_models
-from hintbench.config import get_settings
-from hintbench.envs.debug import DebugEnv
-from hintbench.logging import setup_logging
-from hintbench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
-from hintbench.tasks_debug import DEBUG_LADDER, DEBUG_TASKS
+from puzzlebench.agents.llm import LLMDebugAgent, ModelSpec, load_models
+from puzzlebench.config import get_settings
+from puzzlebench.envs.debug import DebugEnv
+from puzzlebench.logging import setup_logging
+from puzzlebench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
+from puzzlebench.tasks_debug import DEBUG_LADDER, DEBUG_TASKS
 
 LADDER_LEVELS = tuple(h.level for h in DEBUG_LADDER)
 LADDER_COSTS = {h.level: h.cost for h in DEBUG_LADDER}
@@ -71,32 +71,32 @@ def load_bank(name: str):
     if name == "hand":
         return list(DEBUG_TASKS)
     if name == "systems":
-        from hintbench.tasks_systems import SYSTEM_TASKS
+        from puzzlebench.tasks_systems import SYSTEM_TASKS
 
         return list(SYSTEM_TASKS)
     if name == "expr":
-        from hintbench.tasks_expr import EXPR_TASKS
+        from puzzlebench.tasks_expr import EXPR_TASKS
 
         return list(EXPR_TASKS)
     if name == "multi":
-        from hintbench.tasks_multifile import MULTI_TASKS
+        from puzzlebench.tasks_multifile import MULTI_TASKS
 
         return list(MULTI_TASKS)
     if name == "big":
-        from hintbench.tasks_big import BIG_TASKS
+        from puzzlebench.tasks_big import BIG_TASKS
 
         return list(BIG_TASKS)
     if name == "em":
-        from hintbench.tasks_emergent import EMERGENT_TASKS
+        from puzzlebench.tasks_emergent import EMERGENT_TASKS
 
         return list(EMERGENT_TASKS)
-    from hintbench.mutate import generate_tasks
+    from puzzlebench.mutate import generate_tasks
 
     if name == "synth":
-        from hintbench.seeds_debug import ALL_SEEDS
+        from puzzlebench.seeds_debug import ALL_SEEDS
 
         return generate_tasks(ALL_SEEDS, rng_seed=1, per_seed=2, hom_per_seed=1, hom_order=3)
-    from hintbench.seeds_novel import NOVEL_SEEDS
+    from puzzlebench.seeds_novel import NOVEL_SEEDS
 
     return generate_tasks(NOVEL_SEEDS, rng_seed=1, per_seed=2, hom_per_seed=1, hom_order=3)
 

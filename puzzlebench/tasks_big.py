@@ -31,8 +31,8 @@ from __future__ import annotations
 
 import difflib
 
-from hintbench.seeds_debug import _t
-from hintbench.tasks_debug import DebugTask
+from puzzlebench.seeds_debug import _t
+from puzzlebench.tasks_debug import DebugTask
 
 
 def _span(fixed: str, buggy: str) -> tuple[int, int]:
@@ -1148,7 +1148,7 @@ _DB_CHOICES = (
 
 
 def _task() -> DebugTask:
-    from hintbench.envs.debug import run_tests
+    from puzzlebench.envs.debug import run_tests
 
     fixed_map = dict(_DB_FILES_FIXED)
     buggy_map = dict(_DB_FILES_BUGGY)

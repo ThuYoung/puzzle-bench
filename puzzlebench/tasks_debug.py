@@ -13,7 +13,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from hintbench.schema import HintSpec, MilestoneSpec, TaskSpec
+from puzzlebench.schema import HintSpec, MilestoneSpec, TaskSpec
 
 # Track B standard ladder (spec section 4): cumulative full-ladder cost is 9.
 DEBUG_LADDER: tuple[HintSpec, ...] = (

@@ -1,7 +1,7 @@
 """Grader unit tests: attribution timing, dual read-out, denominator exclusion."""
 
-from hintbench.grader import attribute, dual_scores, grade, terminal_reward
-from hintbench.schema import HintSpec, MilestoneSpec, PurchaseEvent, TaskSpec
+from puzzlebench.grader import attribute, dual_scores, grade, terminal_reward
+from puzzlebench.schema import HintSpec, MilestoneSpec, PurchaseEvent, TaskSpec
 
 MILESTONES = (
     MilestoneSpec("setup", weight=0.2),

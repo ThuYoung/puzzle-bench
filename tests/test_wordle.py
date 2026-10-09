@@ -2,8 +2,8 @@
 
 import pytest
 
-from hintbench.economy import Wallet
-from hintbench.envs.wordle import (
+from puzzlebench.economy import Wallet
+from puzzlebench.envs.wordle import (
     ABSENT,
     CORRECT,
     PRESENT,

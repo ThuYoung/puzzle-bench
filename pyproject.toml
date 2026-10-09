@@ -1,5 +1,5 @@
 [project]
-name = "hintbench"
+name = "puzzlebench"
 version = "0.1.0"
 description = "Budgeted-hint evaluation harness: milestone rubrics, attribution, and individualized regret"
 requires-python = ">=3.11"
@@ -24,4 +24,4 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["hintbench"]
+packages = ["puzzlebench"]

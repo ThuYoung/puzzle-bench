@@ -10,8 +10,8 @@ from __future__ import annotations
 
 import random
 
-from hintbench.envs.wordle import ANSWERS, WORD_LENGTH, consistent_with_feedback
-from hintbench.schema import EpisodeResult
+from puzzlebench.envs.wordle import ANSWERS, WORD_LENGTH, consistent_with_feedback
+from puzzlebench.schema import EpisodeResult
 
 
 class ScriptedWordleAgent:
@@ -55,7 +55,7 @@ class ScriptedWordleAgent:
         return pool[0]
 
     def _elimination(self, guess: str, pool: list[str]) -> float:
-        from hintbench.envs.wordle import mark_guess
+        from puzzlebench.envs.wordle import mark_guess
 
         buckets: dict[tuple[str, ...], int] = {}
         for target in pool:

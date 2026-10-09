@@ -14,7 +14,7 @@ from __future__ import annotations
 import math
 import random
 
-from hintbench.schema import EpisodeResult
+from puzzlebench.schema import EpisodeResult
 
 Matrix = dict[tuple[str, int], list[EpisodeResult]]
 

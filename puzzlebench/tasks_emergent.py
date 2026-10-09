@@ -31,9 +31,9 @@ drive the compositions directly. F2P/P2P partitions are asserted at import.
 
 from __future__ import annotations
 
-from hintbench.mutate import changed_region
-from hintbench.seeds_debug import _t
-from hintbench.tasks_debug import DebugTask
+from puzzlebench.mutate import changed_region
+from puzzlebench.seeds_debug import _t
+from puzzlebench.tasks_debug import DebugTask
 
 # -- EM1: creditd ---------------------------------------------------------------
 
@@ -444,7 +444,7 @@ _VOTED_CHOICES = (
 
 
 def _task(task_id: str, title: str, fixed: str, buggy: str, tests, public, sketch: str, choices: tuple[str, ...], answer: int) -> DebugTask:
-    from hintbench.envs.debug import run_tests
+    from puzzlebench.envs.debug import run_tests
 
     outcomes = run_tests(buggy, tests)
     f2p = tuple(n for n, o in outcomes.items() if not o["passed"])

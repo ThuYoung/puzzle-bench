@@ -20,9 +20,9 @@ module is LAST in the files tuple (tests reach it as `solution`).
 
 from __future__ import annotations
 
-from hintbench.mutate import changed_region
-from hintbench.seeds_debug import _t
-from hintbench.tasks_debug import DebugTask
+from puzzlebench.mutate import changed_region
+from puzzlebench.seeds_debug import _t
+from puzzlebench.tasks_debug import DebugTask
 
 # -- MF1: zelang (lexer / parser / evaluator) -----------------------------------
 
@@ -555,7 +555,7 @@ def _task(
     choices: tuple[str, ...],
     answer: int,
 ) -> DebugTask:
-    from hintbench.envs.debug import run_tests
+    from puzzlebench.envs.debug import run_tests
 
     fixed_map = dict(fixed_files)
     buggy_map = dict(buggy_files)

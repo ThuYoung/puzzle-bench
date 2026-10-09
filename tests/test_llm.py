@@ -5,16 +5,16 @@ import json
 
 import httpx
 
-from hintbench.agents.llm import (
+from puzzlebench.agents.llm import (
     PROVIDERS,
     LLMDebugAgent,
     ModelSpec,
     load_models,
     parse_action,
 )
-from hintbench.economy import Wallet
-from hintbench.envs.debug import DebugEnv
-from hintbench.tasks_debug import TASK_SUM
+from puzzlebench.economy import Wallet
+from puzzlebench.envs.debug import DebugEnv
+from puzzlebench.tasks_debug import TASK_SUM
 
 
 def make_agent(replies: list[str], **kw) -> LLMDebugAgent:
@@ -230,7 +230,7 @@ def test_for_model_refuses_without_key(monkeypatch):
 
 
 async def test_diagnosis_probe_end_to_end():
-    from hintbench.tasks_expr import EXPR_TASKS
+    from puzzlebench.tasks_expr import EXPR_TASKS
 
     task = EXPR_TASKS[0]  # zolarith: fault_answer == 4
     agent = make_agent([

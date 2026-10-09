@@ -22,7 +22,7 @@ from dataclasses import dataclass
 
 import httpx
 
-from hintbench.schema import EpisodeResult
+from puzzlebench.schema import EpisodeResult
 
 SYSTEM_PROMPT = """You are being evaluated on a debugging task with PAID hints.
 

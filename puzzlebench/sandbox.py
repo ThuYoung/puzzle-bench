@@ -5,7 +5,7 @@ in-process. This module spawns ONE worker (JSON-lines protocol over pipes)
 and reuses it for every suite run; per-test SIGALRM timeouts contain hangs,
 and a dead worker (a patch can always os._exit) is detected and respawned.
 
-The worker imports run_tests from hintbench.envs.debug, so the execution
+The worker imports run_tests from puzzlebench.envs.debug, so the execution
 semantics have a single source of truth; spawn cost (~0.2s) amortizes across
 the whole session. This is process isolation with timeouts, not a container:
 filesystem/network restrictions are a pre-real-benchmark requirement (see
@@ -22,7 +22,7 @@ from typing import Any
 
 _WORKER = """
 import json, signal, sys
-from hintbench.envs.debug import run_tests
+from puzzlebench.envs.debug import run_tests
 
 class Timeout(Exception):
     pass

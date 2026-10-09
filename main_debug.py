@@ -11,14 +11,14 @@ from __future__ import annotations
 
 import asyncio
 
-from hintbench import metrics
-from hintbench.agents.debug_scripted import ScriptedDebugAgent
-from hintbench.config import get_settings
-from hintbench.envs.debug import DebugEnv
-from hintbench.logging import setup_logging
-from hintbench.mutate import generate_tasks
-from hintbench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
-from hintbench.tasks_debug import DEBUG_LADDER, DEBUG_TASKS, DebugTask
+from puzzlebench import metrics
+from puzzlebench.agents.debug_scripted import ScriptedDebugAgent
+from puzzlebench.config import get_settings
+from puzzlebench.envs.debug import DebugEnv
+from puzzlebench.logging import setup_logging
+from puzzlebench.mutate import generate_tasks
+from puzzlebench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
+from puzzlebench.tasks_debug import DEBUG_LADDER, DEBUG_TASKS, DebugTask
 
 LADDER_LEVELS = tuple(h.level for h in DEBUG_LADDER)
 LADDER_COSTS = {h.level: h.cost for h in DEBUG_LADDER}

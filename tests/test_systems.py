@@ -1,7 +1,7 @@
 """Track B2 integrity: planted bugs fail hidden tests, never public ones."""
 
-from hintbench.envs.debug import run_tests
-from hintbench.tasks_systems import SYSTEM_TASKS
+from puzzlebench.envs.debug import run_tests
+from puzzlebench.tasks_systems import SYSTEM_TASKS
 
 
 def test_fixed_sources_are_green():

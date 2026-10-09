@@ -1,4 +1,4 @@
-# HintBench Spec v0.2
+# PuzzleBench Spec v0.2
 
 > 状态：草案。2026-09-30（v0.1 同日首发；v0.2 吸收 harness 自检实现与三轮对抗评审的修订）。
 > 范围：测量目标、题库形态、提示协议、判分器、评测协议、指标、质量门槛、生产管道、pilot 计划。不含实现代码，接口仅作契约定义。
@@ -279,7 +279,7 @@ MH archive + puzzle.cat（API 已验证）+ P&KU + 原创补足；筛选标准"�
 ## 11. 工程接口（契约）
 
 ```python
-env = gym.make("hintbench.dbg@dbg_mut_000341", seed=7, budget=3)
+env = gym.make("puzzlebench.dbg@dbg_mut_000341", seed=7, budget=3)
 obs  = env.reset()                  # 题面 + 仓库快照 + 动作空间 + 产物 schema 说明
                                     # 【v0.2】+ 已授予提示的完整文本（协议 A 格）
 obs  = env.step(actions)            # 编辑/命令执行；判分静默，无对错反馈

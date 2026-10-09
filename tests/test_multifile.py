@@ -2,9 +2,9 @@
 
 import sys
 
-from hintbench.economy import Wallet
-from hintbench.envs.debug import DebugEnv, run_tests
-from hintbench.tasks_multifile import MULTI_TASKS
+from puzzlebench.economy import Wallet
+from puzzlebench.envs.debug import DebugEnv, run_tests
+from puzzlebench.tasks_multifile import MULTI_TASKS
 
 ZEL, LED = MULTI_TASKS
 
@@ -106,7 +106,7 @@ async def test_multi_hint_consistency_touches_any_region():
 
 
 async def test_sandbox_matches_in_process_for_packages():
-    from hintbench.sandbox import SandboxRunner
+    from puzzlebench.sandbox import SandboxRunner
 
     runner = SandboxRunner()
     try:

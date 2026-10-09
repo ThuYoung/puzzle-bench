@@ -2,9 +2,9 @@
 
 import sys
 
-from hintbench.economy import Wallet
-from hintbench.envs.debug import DebugEnv, run_tests
-from hintbench.tasks_big import BIG_TASKS
+from puzzlebench.economy import Wallet
+from puzzlebench.envs.debug import DebugEnv, run_tests
+from puzzlebench.tasks_big import BIG_TASKS
 
 MINIDB = BIG_TASKS[0]
 

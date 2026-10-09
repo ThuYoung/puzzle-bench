@@ -1,7 +1,7 @@
 """Regret oracle tests: DP correctness on hand-computable matrices."""
 
-from hintbench.protocols import optimal_allocation, regret
-from hintbench.schema import EpisodeResult
+from puzzlebench.protocols import optimal_allocation, regret
+from puzzlebench.schema import EpisodeResult
 
 
 def stub(s_complete: float) -> EpisodeResult:

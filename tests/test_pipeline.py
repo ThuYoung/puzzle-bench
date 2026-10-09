@@ -5,9 +5,9 @@ The assertions encode the benchmark's reason to exist: the triad must separate
 Scripted RNG is seeded, so results are deterministic.
 """
 
-from hintbench.agents.scripted import ScriptedWordleAgent
-from hintbench.envs.wordle import ANSWERS, HINT_LADDER, WordleEnv
-from hintbench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
+from puzzlebench.agents.scripted import ScriptedWordleAgent
+from puzzlebench.envs.wordle import ANSWERS, HINT_LADDER, WordleEnv
+from puzzlebench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
 
 LADDER = tuple(h.level for h in HINT_LADDER)
 COSTS = {h.level: h.cost for h in HINT_LADDER}

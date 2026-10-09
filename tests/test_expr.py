@@ -1,7 +1,7 @@
 """Expression-language trap bank: partitions, trap semantics, diagnosis metadata."""
 
-from hintbench.envs.debug import run_tests
-from hintbench.tasks_expr import EXPR_TASKS
+from puzzlebench.envs.debug import run_tests
+from puzzlebench.tasks_expr import EXPR_TASKS
 
 ZOL, ZOO = EXPR_TASKS
 

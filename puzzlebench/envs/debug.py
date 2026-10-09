@@ -7,7 +7,7 @@ sketch (L5). step() replaces the module and reports ONLY public-test results
 — hidden-test outcomes are the paid goods, never leaked (silent grading).
 
 A patch is a full replacement of solution.py (fenced code block or raw
-source). Execution goes through the persistent sandbox worker (hintbench.
+source). Execution goes through the persistent sandbox worker (puzzlebench.
 sandbox): process isolation plus per-test timeouts, so hostile or hanging
 patches cannot take the harness down. run_tests remains as the in-process
 reference implementation used by the worker and by fast tests.
@@ -21,10 +21,10 @@ import traceback
 from types import SimpleNamespace
 from typing import Any
 
-from hintbench.economy import Wallet
-from hintbench.grader import grade
-from hintbench.schema import EpisodeResult, PurchaseEvent
-from hintbench.tasks_debug import DEBUG_LADDER, REGION_LEVELS, DebugTask, make_debug_spec
+from puzzlebench.economy import Wallet
+from puzzlebench.grader import grade
+from puzzlebench.schema import EpisodeResult, PurchaseEvent
+from puzzlebench.tasks_debug import DEBUG_LADDER, REGION_LEVELS, DebugTask, make_debug_spec
 
 _FENCE = re.compile(r"```(?:python)?(?:\:([A-Za-z_][\w]*(?:\.py)?))?\s*\n(.*?)```", re.DOTALL)
 
@@ -161,7 +161,7 @@ class DebugEnv:
     def _exec(self, files: dict[str, str], tests: tuple[tuple[str, str], ...]) -> dict[str, dict[str, Any]]:
         if self.runner is not None:
             return self.runner(files, tests)
-        from hintbench.sandbox import default_runner
+        from puzzlebench.sandbox import default_runner
 
         return default_runner().run_tests(files, tests)
 

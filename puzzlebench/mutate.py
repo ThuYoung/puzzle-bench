@@ -12,7 +12,7 @@ harness process must never hang on it. Keep a mutant iff it fails >= 1 test
 mutants (all green) are discarded as tasks but kept as plausible wrong
 variants for scripted agents.
 
-CLI: uv run python -m hintbench.mutate --per-seed 2 --hom-per-seed 1
+CLI: uv run python -m puzzlebench.mutate --per-seed 2 --hom-per-seed 1
 """
 
 from __future__ import annotations
@@ -23,8 +23,8 @@ import difflib
 import random
 from dataclasses import dataclass
 
-from hintbench.seeds_debug import SEEDS, Seed
-from hintbench.tasks_debug import DebugTask
+from puzzlebench.seeds_debug import SEEDS, Seed
+from puzzlebench.tasks_debug import DebugTask
 
 
 @dataclass(frozen=True)
@@ -229,7 +229,7 @@ def filter_batch(
     candidates: list[str], tests: tuple[tuple[str, str], ...], *, timeout: float = 0.5
 ) -> list[dict[str, bool] | None]:
     """Per-candidate verdicts; None = rejected (hang/crash/sandbox failure)."""
-    from hintbench.sandbox import SandboxRunner
+    from puzzlebench.sandbox import SandboxRunner
 
     runner = SandboxRunner(timeout=timeout)  # dedicated: never perturbs the shared default
     try:

@@ -1,8 +1,8 @@
 """Debug-env tests: test execution, hint goods, consistency, lifecycle."""
 
-from hintbench.economy import Wallet
-from hintbench.envs.debug import DebugEnv
-from hintbench.tasks_debug import DEBUG_TASKS, TASK_PALINDROME, TASK_SUM
+from puzzlebench.economy import Wallet
+from puzzlebench.envs.debug import DebugEnv
+from puzzlebench.tasks_debug import DEBUG_TASKS, TASK_PALINDROME, TASK_SUM
 
 
 async def test_buggy_baseline_f2p_fail_p2p_pass():
@@ -139,7 +139,7 @@ async def test_all_tasks_internal_consistency():
 
 # -- diagnosis probe and surgical precision --------------------------------------
 
-from hintbench.tasks_expr import EXPR_TASKS
+from puzzlebench.tasks_expr import EXPR_TASKS
 
 EXPR_ZOL = EXPR_TASKS[0]  # zolarith: two planted grammar faults, answer 4
 
@@ -236,9 +236,9 @@ async def test_surgical_precision_located_vs_cosmetic():
 
 # -- pipeline: archetypes through protocols A/B -------------------------------
 
-from hintbench.agents.debug_scripted import ScriptedDebugAgent
-from hintbench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
-from hintbench.tasks_debug import DEBUG_LADDER
+from puzzlebench.agents.debug_scripted import ScriptedDebugAgent
+from puzzlebench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
+from puzzlebench.tasks_debug import DEBUG_LADDER
 
 LADDER = tuple(h.level for h in DEBUG_LADDER)
 COSTS = {h.level: h.cost for h in DEBUG_LADDER}

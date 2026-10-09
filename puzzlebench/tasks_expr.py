@@ -25,9 +25,9 @@ name only one or blame a rule the implementation gets right.
 
 from __future__ import annotations
 
-from hintbench.mutate import changed_region
-from hintbench.seeds_debug import _t
-from hintbench.tasks_debug import DebugTask
+from puzzlebench.mutate import changed_region
+from puzzlebench.seeds_debug import _t
+from puzzlebench.tasks_debug import DebugTask
 
 # -- E1: Zolarith (integer arithmetic) ------------------------------------------
 
@@ -569,7 +569,7 @@ def _task(
     choices: tuple[str, ...],
     answer: int,
 ) -> DebugTask:
-    from hintbench.envs.debug import run_tests
+    from puzzlebench.envs.debug import run_tests
 
     assert buggy != fixed, task_id
     # real F2P/P2P partition from executing the buggy source; import-time so a

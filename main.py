@@ -3,19 +3,19 @@
 Runs protocol A (forced hint levels -> capability matrix + solve-rate curve)
 and protocol B (free play at several coin budgets) for three archetype agents,
 then prints the triad (completion / unaided / regret) which should separate
-them. All aggregate numbers come from hintbench.metrics.
+them. All aggregate numbers come from puzzlebench.metrics.
 """
 
 from __future__ import annotations
 
 import asyncio
 
-from hintbench import metrics
-from hintbench.agents.scripted import ScriptedWordleAgent
-from hintbench.config import get_settings
-from hintbench.envs.wordle import ANSWERS, HINT_LADDER, WordleEnv
-from hintbench.logging import setup_logging
-from hintbench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
+from puzzlebench import metrics
+from puzzlebench.agents.scripted import ScriptedWordleAgent
+from puzzlebench.config import get_settings
+from puzzlebench.envs.wordle import ANSWERS, HINT_LADDER, WordleEnv
+from puzzlebench.logging import setup_logging
+from puzzlebench.protocols import optimal_allocation, regret, run_protocol_a, run_protocol_b
 
 LADDER_LEVELS = tuple(h.level for h in HINT_LADDER)
 LADDER_COSTS = {h.level: h.cost for h in HINT_LADDER}

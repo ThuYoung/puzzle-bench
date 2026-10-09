@@ -12,7 +12,7 @@ test suite; the mutation pipeline (mutate.py) breaks them procedurally.
 
 from __future__ import annotations
 
-from hintbench.seeds_debug import Seed, _t
+from puzzlebench.seeds_debug import Seed, _t
 
 # -- N1: Echo-planet calendar ---------------------------------------------------
 

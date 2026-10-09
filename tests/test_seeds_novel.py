@@ -1,8 +1,8 @@
 """Novel-spec seed integrity: references stay green and traps stay documented."""
 
-from hintbench.envs.debug import run_tests
-from hintbench.mutate import OPERATORS
-from hintbench.seeds_novel import NOVEL_SEEDS
+from puzzlebench.envs.debug import run_tests
+from puzzlebench.mutate import OPERATORS
+from puzzlebench.seeds_novel import NOVEL_SEEDS
 
 
 def test_novel_seeds_pass_their_own_suites():
