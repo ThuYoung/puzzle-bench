@@ -1,0 +1,747 @@
+{
+  "label": "kimi-k2.8-coding",
+  "model": "kimi-for-coding",
+  "bank": [
+    "dbg_sys_buffer_stale_snapshot",
+    "dbg_sys_warehouse_cancel_leak",
+    "dbg_sys_scheduler_catchup",
+    "dbg_sys_ledger_release_credit",
+    "dbg_sys_history_alias",
+    "dbg_sys_config_alias",
+    "dbg_sys_rank_tie_order",
+    "dbg_sys_rebate_half_up",
+    "dbg_sys_window_exclusive",
+    "dbg_sys_merge_tie_a_first",
+    "dbg_sys_split_keeps_empties",
+    "dbg_sys_clamp_edges",
+    "dbg_sys_div_floor",
+    "dbg_sys_percent_trunc"
+  ],
+  "budget": 5,
+  "seeds": 3,
+  "episodes": [
+    {
+      "task_id": "dbg_sys_buffer_stale_snapshot",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_buffer_stale_snapshot",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_buffer_stale_snapshot",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_warehouse_cancel_leak",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_warehouse_cancel_leak",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_warehouse_cancel_leak",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_scheduler_catchup",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_scheduler_catchup",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 0.996,
+      "turns_used": 1,
+      "purchases": [
+        {
+          "level": 1,
+          "turn": 1
+        }
+      ],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_scheduler_catchup",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 0.992,
+      "turns_used": 1,
+      "purchases": [
+        {
+          "level": 1,
+          "turn": 1
+        },
+        {
+          "level": 2,
+          "turn": 1
+        }
+      ],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_ledger_release_credit",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_ledger_release_credit",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_ledger_release_credit",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_history_alias",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_history_alias",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_history_alias",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_config_alias",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_config_alias",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_config_alias",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_rank_tie_order",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_rank_tie_order",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_rank_tie_order",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_rebate_half_up",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 0.992,
+      "turns_used": 2,
+      "purchases": [
+        {
+          "level": 1,
+          "turn": 2
+        },
+        {
+          "level": 2,
+          "turn": 2
+        }
+      ],
+      "probes": [
+        {
+          "turn": 2,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_rebate_half_up",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 0.992,
+      "turns_used": 2,
+      "purchases": [
+        {
+          "level": 1,
+          "turn": 2
+        },
+        {
+          "level": 2,
+          "turn": 2
+        }
+      ],
+      "probes": [
+        {
+          "turn": 2,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_rebate_half_up",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 0.992,
+      "turns_used": 2,
+      "purchases": [
+        {
+          "level": 1,
+          "turn": 2
+        },
+        {
+          "level": 2,
+          "turn": 2
+        }
+      ],
+      "probes": [
+        {
+          "turn": 2,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_window_exclusive",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_window_exclusive",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_window_exclusive",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_merge_tie_a_first",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_merge_tie_a_first",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_merge_tie_a_first",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 0.996,
+      "turns_used": 2,
+      "purchases": [
+        {
+          "level": 1,
+          "turn": 2
+        }
+      ],
+      "probes": [
+        {
+          "turn": 2,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_split_keeps_empties",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_split_keeps_empties",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_split_keeps_empties",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_clamp_edges",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_clamp_edges",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_clamp_edges",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_div_floor",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_div_floor",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_div_floor",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_percent_trunc",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_percent_trunc",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_percent_trunc",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    }
+  ],
+  "means": {
+    "complete": 1.0,
+    "unaided": 1.0,
+    "coins_spent": 10
+  }
+}

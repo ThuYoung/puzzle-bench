@@ -1,0 +1,77 @@
+{
+  "label": "kimi-k2.8-coding",
+  "model": "kimi-for-coding",
+  "budget": 5,
+  "seeds": 1,
+  "episodes": [
+    {
+      "task_id": "dbg_hand_sum_up_to",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_hand_clamp",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_hand_palindrome",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_hand_fizzbuzz",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    }
+  ],
+  "means": {
+    "complete": 1.0,
+    "unaided": 1.0,
+    "coins_spent": 0
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "label": "kimi-k2.8-coding-high",
+  "model": "kimi-for-coding",
+  "bank": [
+    "dbg_expr_zolarith_grammar",
+    "dbg_expr_zoologic_grammar"
+  ],
+  "budget": 5,
+  "seeds": 1,
+  "episodes": [
+    {
+      "task_id": "dbg_expr_zolarith_grammar",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "kind": "diagnosis",
+          "claimed": 4,
+          "truth": 4,
+          "ok": true
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_expr_zoologic_grammar",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "kind": "diagnosis",
+          "claimed": 2,
+          "truth": 2,
+          "ok": true
+        }
+      ]
+    }
+  ],
+  "means": {
+    "complete": 1.0,
+    "unaided": 1.0,
+    "coins_spent": 0
+  }
+}

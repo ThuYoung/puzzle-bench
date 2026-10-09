@@ -1,0 +1,34 @@
+{
+  "label": "kimi-k2.8-coding-high",
+  "model": "kimi-for-coding",
+  "bank": [
+    "dbg_big_minidb_contracts"
+  ],
+  "budget": 5,
+  "seeds": 1,
+  "episodes": [
+    {
+      "task_id": "dbg_big_minidb_contracts",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "kind": "diagnosis",
+          "claimed": 3,
+          "truth": 3,
+          "ok": true
+        }
+      ],
+      "surgical_precision": 0.7307692307692307
+    }
+  ],
+  "means": {
+    "complete": 1.0,
+    "unaided": 1.0,
+    "coins_spent": 0
+  }
+}

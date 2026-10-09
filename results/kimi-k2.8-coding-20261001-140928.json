@@ -1,0 +1,53 @@
+{
+  "label": "kimi-k2.8-coding",
+  "model": "kimi-for-coding",
+  "bank": [
+    "dbg_multi_zelang_grammar",
+    "dbg_multi_ledgerd_alias_credit"
+  ],
+  "budget": 5,
+  "seeds": 1,
+  "episodes": [
+    {
+      "task_id": "dbg_multi_zelang_grammar",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "kind": "diagnosis",
+          "claimed": 3,
+          "truth": 3,
+          "ok": true
+        }
+      ],
+      "surgical_precision": 1.0
+    },
+    {
+      "task_id": "dbg_multi_ledgerd_alias_credit",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "kind": "diagnosis",
+          "claimed": 2,
+          "truth": 2,
+          "ok": true
+        }
+      ],
+      "surgical_precision": 1.0
+    }
+  ],
+  "means": {
+    "complete": 1.0,
+    "unaided": 1.0,
+    "coins_spent": 0
+  }
+}

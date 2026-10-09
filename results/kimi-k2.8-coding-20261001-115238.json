@@ -1,0 +1,521 @@
+{
+  "label": "kimi-k2.8-coding",
+  "model": "kimi-for-coding",
+  "bank": [
+    "dbg_sys_buffer_stale_snapshot",
+    "dbg_sys_warehouse_cancel_leak",
+    "dbg_sys_scheduler_catchup",
+    "dbg_sys_ledger_release_credit",
+    "dbg_sys_history_alias",
+    "dbg_sys_config_alias",
+    "dbg_sys_rank_tie_order",
+    "dbg_sys_rebate_half_up",
+    "dbg_sys_window_exclusive",
+    "dbg_sys_merge_tie_a_first",
+    "dbg_sys_split_keeps_empties",
+    "dbg_sys_clamp_edges",
+    "dbg_sys_div_floor",
+    "dbg_sys_percent_trunc"
+  ],
+  "budget": 5,
+  "seeds": 1,
+  "episodes": [
+    {
+      "task_id": "dbg_sys_buffer_stale_snapshot",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_warehouse_cancel_leak",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_scheduler_catchup",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 0.996,
+      "turns_used": 2,
+      "purchases": [
+        {
+          "level": 1,
+          "turn": 2
+        }
+      ],
+      "probes": [
+        {
+          "turn": 2,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_ledger_release_credit",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_history_alias",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_config_alias",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_rank_tie_order",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_rebate_half_up",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_window_exclusive",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_merge_tie_a_first",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_split_keeps_empties",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 0.996,
+      "turns_used": 3,
+      "purchases": [
+        {
+          "level": 1,
+          "turn": 2
+        }
+      ],
+      "probes": [
+        {
+          "turn": 3,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_clamp_edges",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_div_floor",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_sys_percent_trunc",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    }
+  ],
+  "means": {
+    "complete": 1.0,
+    "unaided": 1.0,
+    "coins_spent": 2
+  },
+  "protocol_a": {
+    "oracle": 14.0,
+    "regret": 0.0,
+    "cells": {
+      "dbg_sys_buffer_stale_snapshot|L0": [
+        1.0
+      ],
+      "dbg_sys_buffer_stale_snapshot|L1": [
+        1.0
+      ],
+      "dbg_sys_buffer_stale_snapshot|L2": [
+        1.0
+      ],
+      "dbg_sys_buffer_stale_snapshot|L3": [
+        1.0
+      ],
+      "dbg_sys_buffer_stale_snapshot|L4": [
+        1.0
+      ],
+      "dbg_sys_buffer_stale_snapshot|L5": [
+        1.0
+      ],
+      "dbg_sys_warehouse_cancel_leak|L0": [
+        1.0
+      ],
+      "dbg_sys_warehouse_cancel_leak|L1": [
+        1.0
+      ],
+      "dbg_sys_warehouse_cancel_leak|L2": [
+        1.0
+      ],
+      "dbg_sys_warehouse_cancel_leak|L3": [
+        1.0
+      ],
+      "dbg_sys_warehouse_cancel_leak|L4": [
+        1.0
+      ],
+      "dbg_sys_warehouse_cancel_leak|L5": [
+        1.0
+      ],
+      "dbg_sys_scheduler_catchup|L0": [
+        1.0
+      ],
+      "dbg_sys_scheduler_catchup|L1": [
+        1.0
+      ],
+      "dbg_sys_scheduler_catchup|L2": [
+        0.1765
+      ],
+      "dbg_sys_scheduler_catchup|L3": [
+        1.0
+      ],
+      "dbg_sys_scheduler_catchup|L4": [
+        1.0
+      ],
+      "dbg_sys_scheduler_catchup|L5": [
+        1.0
+      ],
+      "dbg_sys_ledger_release_credit|L0": [
+        1.0
+      ],
+      "dbg_sys_ledger_release_credit|L1": [
+        1.0
+      ],
+      "dbg_sys_ledger_release_credit|L2": [
+        1.0
+      ],
+      "dbg_sys_ledger_release_credit|L3": [
+        1.0
+      ],
+      "dbg_sys_ledger_release_credit|L4": [
+        1.0
+      ],
+      "dbg_sys_ledger_release_credit|L5": [
+        1.0
+      ],
+      "dbg_sys_history_alias|L0": [
+        1.0
+      ],
+      "dbg_sys_history_alias|L1": [
+        1.0
+      ],
+      "dbg_sys_history_alias|L2": [
+        1.0
+      ],
+      "dbg_sys_history_alias|L3": [
+        1.0
+      ],
+      "dbg_sys_history_alias|L4": [
+        1.0
+      ],
+      "dbg_sys_history_alias|L5": [
+        1.0
+      ],
+      "dbg_sys_config_alias|L0": [
+        1.0
+      ],
+      "dbg_sys_config_alias|L1": [
+        1.0
+      ],
+      "dbg_sys_config_alias|L2": [
+        1.0
+      ],
+      "dbg_sys_config_alias|L3": [
+        1.0
+      ],
+      "dbg_sys_config_alias|L4": [
+        1.0
+      ],
+      "dbg_sys_config_alias|L5": [
+        1.0
+      ],
+      "dbg_sys_rank_tie_order|L0": [
+        1.0
+      ],
+      "dbg_sys_rank_tie_order|L1": [
+        1.0
+      ],
+      "dbg_sys_rank_tie_order|L2": [
+        1.0
+      ],
+      "dbg_sys_rank_tie_order|L3": [
+        1.0
+      ],
+      "dbg_sys_rank_tie_order|L4": [
+        1.0
+      ],
+      "dbg_sys_rank_tie_order|L5": [
+        1.0
+      ],
+      "dbg_sys_rebate_half_up|L0": [
+        0.4118
+      ],
+      "dbg_sys_rebate_half_up|L1": [
+        1.0
+      ],
+      "dbg_sys_rebate_half_up|L2": [
+        1.0
+      ],
+      "dbg_sys_rebate_half_up|L3": [
+        1.0
+      ],
+      "dbg_sys_rebate_half_up|L4": [
+        1.0
+      ],
+      "dbg_sys_rebate_half_up|L5": [
+        1.0
+      ],
+      "dbg_sys_window_exclusive|L0": [
+        1.0
+      ],
+      "dbg_sys_window_exclusive|L1": [
+        1.0
+      ],
+      "dbg_sys_window_exclusive|L2": [
+        1.0
+      ],
+      "dbg_sys_window_exclusive|L3": [
+        1.0
+      ],
+      "dbg_sys_window_exclusive|L4": [
+        1.0
+      ],
+      "dbg_sys_window_exclusive|L5": [
+        1.0
+      ],
+      "dbg_sys_merge_tie_a_first|L0": [
+        1.0
+      ],
+      "dbg_sys_merge_tie_a_first|L1": [
+        1.0
+      ],
+      "dbg_sys_merge_tie_a_first|L2": [
+        1.0
+      ],
+      "dbg_sys_merge_tie_a_first|L3": [
+        1.0
+      ],
+      "dbg_sys_merge_tie_a_first|L4": [
+        1.0
+      ],
+      "dbg_sys_merge_tie_a_first|L5": [
+        1.0
+      ],
+      "dbg_sys_split_keeps_empties|L0": [
+        1.0
+      ],
+      "dbg_sys_split_keeps_empties|L1": [
+        1.0
+      ],
+      "dbg_sys_split_keeps_empties|L2": [
+        1.0
+      ],
+      "dbg_sys_split_keeps_empties|L3": [
+        1.0
+      ],
+      "dbg_sys_split_keeps_empties|L4": [
+        1.0
+      ],
+      "dbg_sys_split_keeps_empties|L5": [
+        1.0
+      ],
+      "dbg_sys_clamp_edges|L0": [
+        1.0
+      ],
+      "dbg_sys_clamp_edges|L1": [
+        1.0
+      ],
+      "dbg_sys_clamp_edges|L2": [
+        1.0
+      ],
+      "dbg_sys_clamp_edges|L3": [
+        1.0
+      ],
+      "dbg_sys_clamp_edges|L4": [
+        1.0
+      ],
+      "dbg_sys_clamp_edges|L5": [
+        1.0
+      ],
+      "dbg_sys_div_floor|L0": [
+        1.0
+      ],
+      "dbg_sys_div_floor|L1": [
+        1.0
+      ],
+      "dbg_sys_div_floor|L2": [
+        1.0
+      ],
+      "dbg_sys_div_floor|L3": [
+        1.0
+      ],
+      "dbg_sys_div_floor|L4": [
+        1.0
+      ],
+      "dbg_sys_div_floor|L5": [
+        1.0
+      ],
+      "dbg_sys_percent_trunc|L0": [
+        1.0
+      ],
+      "dbg_sys_percent_trunc|L1": [
+        1.0
+      ],
+      "dbg_sys_percent_trunc|L2": [
+        1.0
+      ],
+      "dbg_sys_percent_trunc|L3": [
+        1.0
+      ],
+      "dbg_sys_percent_trunc|L4": [
+        1.0
+      ],
+      "dbg_sys_percent_trunc|L5": [
+        1.0
+      ]
+    }
+  }
+}

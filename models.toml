@@ -1,0 +1,38 @@
+# Models under evaluation. Keys are NEVER written here — key_env names the
+# environment variable that holds each provider key. provider: "anthropic" or
+# "openai" (OpenAI-compatible: Moonshot, DeepSeek, vLLM, ...).
+# temperature 0 is the benchmark default (spec: near-deterministic decoding).
+# kimi-for-coding is an exception: the endpoint enforces temperature=1, so its
+# runs carry extra sampling noise — re-test before drawing conclusions.
+
+[[models]]
+label = "haiku-4.5"
+provider = "anthropic"
+model = "claude-haiku-4-5-20251001"
+key_env = "HINTBENCH_ANTHROPIC_API_KEY"
+
+[[models]]
+label = "kimi-k2.8-coding"
+provider = "openai"
+model = "kimi-for-coding"
+base_url = "https://api.kimi.com/coding/v1"
+key_env = "MOONSHOT_API_KEY"
+temperature = 1.0          # endpoint rejects any other value
+max_tokens = 8192          # reasoning tokens share the completion budget
+reasoning_effort = "low"   # endpoint default "max" is too slow/pricey for a pilot
+
+[[models]]
+label = "kimi-k2.8-coding-high"
+provider = "openai"
+model = "kimi-for-coding"
+base_url = "https://api.kimi.com/coding/v1"
+key_env = "MOONSHOT_API_KEY"
+temperature = 1.0          # endpoint rejects any other value
+max_tokens = 8192          # reasoning tokens share the completion budget
+reasoning_effort = "high"  # effort-control arm: same weights, more thinking
+
+# [[models]]
+# label = "gpt-4o-mini"
+# provider = "openai"
+# model = "gpt-4o-mini"
+# key_env = "OPENAI_API_KEY"

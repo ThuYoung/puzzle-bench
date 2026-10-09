@@ -1,0 +1,457 @@
+{
+  "label": "kimi-k2.8-coding",
+  "model": "kimi-for-coding",
+  "bank": [
+    "dbg_mut_median3_return_swap_0",
+    "dbg_mut_median3_return_swap_1",
+    "dbg_mut_median3_return_swap_2",
+    "dbg_mut_count_vowels_const_bump_0",
+    "dbg_mut_count_vowels_arith_swap_1",
+    "dbg_mut_count_vowels_negate_condition_2",
+    "dbg_mut_binary_search_cmp_flip_0",
+    "dbg_mut_binary_search_const_bump_1",
+    "dbg_mut_binary_search_const_bump_2",
+    "dbg_mut_collatz_steps_const_bump_0",
+    "dbg_mut_collatz_steps_arith_swap_1",
+    "dbg_mut_collatz_steps_arith_swap_2",
+    "dbg_mut_title_case_const_bump_0",
+    "dbg_mut_title_case_const_bump_1",
+    "dbg_mut_title_case_cmp_flip_2",
+    "dbg_mut_running_max_negate_condition_0",
+    "dbg_mut_running_max_bool_swap_1",
+    "dbg_mut_gcd_negate_condition_0",
+    "dbg_mut_gcd_cmp_flip_1",
+    "dbg_mut_gcd_hom_const_bump_negate_condition_2",
+    "dbg_mut_word_count_const_bump_0",
+    "dbg_mut_word_count_negate_condition_1",
+    "dbg_mut_word_count_const_bump_2",
+    "dbg_mut_sum_range_const_bump_0",
+    "dbg_mut_sum_range_range_bound_1",
+    "dbg_mut_sum_range_arith_swap_2"
+  ],
+  "budget": 5,
+  "seeds": 1,
+  "episodes": [
+    {
+      "task_id": "dbg_mut_median3_return_swap_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_median3_return_swap_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_median3_return_swap_2",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_count_vowels_const_bump_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_count_vowels_arith_swap_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_count_vowels_negate_condition_2",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_binary_search_cmp_flip_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_binary_search_const_bump_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_binary_search_const_bump_2",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_collatz_steps_const_bump_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 2,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 2,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_collatz_steps_arith_swap_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_collatz_steps_arith_swap_2",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_title_case_const_bump_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_title_case_const_bump_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_title_case_cmp_flip_2",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_running_max_negate_condition_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_running_max_bool_swap_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_gcd_negate_condition_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_gcd_cmp_flip_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_gcd_hom_const_bump_negate_condition_2",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_word_count_const_bump_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_word_count_negate_condition_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_word_count_const_bump_2",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_sum_range_const_bump_0",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_sum_range_range_bound_1",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    },
+    {
+      "task_id": "dbg_mut_sum_range_arith_swap_2",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "claimed": null,
+          "truth": 0,
+          "ok": null
+        }
+      ]
+    }
+  ],
+  "means": {
+    "complete": 1.0,
+    "unaided": 1.0,
+    "coins_spent": 0
+  }
+}

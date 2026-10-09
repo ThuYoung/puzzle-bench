@@ -1,0 +1,53 @@
+{
+  "label": "kimi-k2.8-coding",
+  "model": "kimi-for-coding",
+  "bank": [
+    "dbg_em_credit_accrual",
+    "dbg_em_chamber_quorum"
+  ],
+  "budget": 5,
+  "seeds": 1,
+  "episodes": [
+    {
+      "task_id": "dbg_em_credit_accrual",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "kind": "diagnosis",
+          "claimed": 1,
+          "truth": 1,
+          "ok": true
+        }
+      ],
+      "surgical_precision": 1.0
+    },
+    {
+      "task_id": "dbg_em_chamber_quorum",
+      "s_complete": 1.0,
+      "s_unaided": 1.0,
+      "reward": 1.0,
+      "turns_used": 1,
+      "purchases": [],
+      "probes": [
+        {
+          "turn": 1,
+          "kind": "diagnosis",
+          "claimed": 4,
+          "truth": 4,
+          "ok": true
+        }
+      ],
+      "surgical_precision": 1.0
+    }
+  ],
+  "means": {
+    "complete": 1.0,
+    "unaided": 1.0,
+    "coins_spent": 0
+  }
+}
