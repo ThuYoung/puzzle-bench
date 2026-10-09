@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>dbg_mut_sum_range_range_bound_0 · PuzzleBench 人测场</title>
+<style>
+:root {
+  --paper: #F6F7F3; --card: #FFFFFF; --ink: #222B33; --muted: #5C6770;
+  --line: #DDE1DA; --seal: #B03A2E; --seal-soft: #F7E9E6;
+  --coin: #B98A1C; --coin-soft: #F8F0DA; --ok: #2E6B4F; --ok-soft: #E4F0E9;
+  --code-bg: #F0F1EC; --shadow: 0 1px 2px rgba(34,43,51,.06);
+  --font-display: "Noto Serif SC", "Songti SC", serif;
+  --font-body: "Noto Sans SC", "PingFang SC", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #17191D; --card: #1E2126; --ink: #E4E0D6; --muted: #98A0A8;
+    --line: #33383F; --seal: #E0705F; --seal-soft: #36221F;
+    --coin: #D9A94A; --coin-soft: #332A18; --ok: #6FBF94; --ok-soft: #1E2F27;
+    --code-bg: #23262C; --shadow: 0 1px 2px rgba(0,0,0,.3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #17191D; --card: #1E2126; --ink: #E4E0D6; --muted: #98A0A8;
+  --line: #33383F; --seal: #E0705F; --seal-soft: #36221F;
+  --coin: #D9A94A; --coin-soft: #332A18; --ok: #6FBF94; --ok-soft: #1E2F27;
+  --code-bg: #23262C; --shadow: 0 1px 2px rgba(0,0,0,.3);
+  color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--font-body); line-height: 1.75; }
+* { box-sizing: border-box; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; }
+button { font-family: var(--font-body); cursor: pointer; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+.site-head { border-bottom: 2px solid var(--ink); padding: 14px 0; margin-bottom: 28px; }
+.site-head .wrap { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.brand { font-family: var(--font-display); font-size: 22px; font-weight: 700; text-decoration: none; color: var(--ink); }
+.brand em { font-style: normal; color: var(--seal); }
+.site-sub { color: var(--muted); font-size: 13px; letter-spacing: .06em; }
+.wrap { max-width: 1060px; margin: 0 auto; }
+.intro { max-width: 68ch; margin-bottom: 26px; }
+.intro p { margin: 0 0 10px; }
+.intro .proto { font-size: 13.5px; color: var(--muted); border-left: 3px solid var(--coin); padding-left: 12px; }
+.bank-h { font-size: 15px; letter-spacing: .12em; color: var(--muted); margin: 26px 0 10px; font-weight: 600; }
+.deck { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 12px 16px;
+  box-shadow: var(--shadow); text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+.card:hover { border-color: var(--ink); }
+.card .tid { font-family: var(--font-mono); font-size: 12.5px; flex: 1; }
+.card .meta { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.stamp { display: inline-block; font-family: var(--font-display); font-weight: 700; color: var(--seal);
+  border: 2px solid var(--seal); border-radius: 3px; padding: 0 8px; font-size: 12px; letter-spacing: .2em;
+  transform: rotate(-3deg); opacity: .9; }
+.stamp.ok { color: var(--ok); border-color: var(--ok); }
+.crumb { font-size: 13px; margin-bottom: 14px; }
+.crumb a { color: var(--muted); text-decoration: none; }
+.crumb a:hover { color: var(--ink); }
+.pz { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 26px; align-items: start; }
+@media (max-width: 860px) { .pz { grid-template-columns: 1fr; } }
+.pz-title { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.pz-title h1 { margin: 0; font-size: 24px; font-family: var(--font-mono); font-weight: 600; }
+.blk { margin-bottom: 22px; }
+.blk > h3 { font-size: 14px; letter-spacing: .18em; color: var(--muted); margin: 0 0 8px;
+  font-family: var(--font-body); font-weight: 600; }
+.rules { background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 14px 18px; }
+.rules .doc-label { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); margin-bottom: 4px; }
+.rules pre { margin: 0 0 12px; white-space: pre-wrap; font-family: var(--font-body); font-size: 14px; line-height: 1.7; }
+.rules pre:last-child { margin-bottom: 0; }
+.mod-label { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin: 14px 0 4px; }
+.code-wrap { background: var(--code-bg); border: 1px solid var(--line); border-radius: 3px; overflow-x: auto;
+  font-family: var(--font-mono); font-size: 12.8px; line-height: 1.6; }
+.code-wrap table { border-collapse: collapse; width: 100%; }
+.code-wrap td { padding: 0; vertical-align: top; }
+.code-wrap td.ln { text-align: right; color: var(--muted); opacity: .65; padding: 0 10px 0 14px;
+  user-select: none; width: 1%; border-right: 1px solid var(--line); }
+.code-wrap td.src { padding: 0 14px 0 12px; white-space: pre; }
+.code-wrap tr:first-child td { padding-top: 10px; }
+.code-wrap tr:last-child td { padding-bottom: 10px; }
+.side { display: flex; flex-direction: column; gap: 16px; position: sticky; top: calc(env(safe-area-inset-top,0px) + 12px); }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 14px 16px; box-shadow: var(--shadow); }
+.panel h3 { margin: 0 0 10px; font-size: 13px; letter-spacing: .18em; color: var(--muted); font-weight: 600; }
+.wallet { display: flex; align-items: center; justify-content: space-between; background: var(--coin-soft);
+  border: 1px solid var(--coin); border-radius: 3px; padding: 10px 14px; font-size: 14px; }
+.wallet b { font-family: var(--font-mono); font-size: 18px; color: var(--coin); font-variant-numeric: tabular-nums; }
+.hint-btn { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 8px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 8px 12px; margin-top: 8px;
+  font-size: 13.5px; color: var(--ink); text-align: left; }
+.hint-btn:hover:not(:disabled) { border-color: var(--coin); }
+.hint-btn:disabled { opacity: .45; cursor: not-allowed; }
+.hint-btn .cost { font-family: var(--font-mono); color: var(--coin); font-size: 12px; white-space: nowrap; }
+.hint-body { border: 1px solid var(--coin); border-top: none; background: var(--coin-soft);
+  padding: 10px 14px; font-size: 12.5px; border-radius: 0 0 3px 3px; font-family: var(--font-mono);
+  white-space: pre-wrap; word-break: break-word; }
+.bought { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-color: var(--coin); }
+.gate-note { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.btn { background: var(--ink); color: var(--paper); border: none; border-radius: 3px; padding: 9px 18px;
+  font-size: 14px; letter-spacing: .04em; }
+.btn:hover { opacity: .88; }
+.choice { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--line); border-radius: 3px;
+  background: var(--card); padding: 10px 14px; margin-top: 8px; font-size: 13.5px; width: 100%; text-align: left; }
+.choice .no { font-family: var(--font-mono); color: var(--muted); border: 1px solid var(--line);
+  border-radius: 2px; padding: 0 6px; flex: none; }
+.choice:hover:not(:disabled) { border-color: var(--ink); }
+.choice:disabled { cursor: default; }
+.choice.right { border-color: var(--ok); background: var(--ok-soft); }
+.choice.right .no { color: var(--ok); border-color: var(--ok); }
+.choice.wrong { border-color: var(--seal); background: var(--seal-soft); }
+.choice.wrong .no { color: var(--seal); border-color: var(--seal); }
+.verdict { margin-top: 12px; font-size: 14px; padding: 10px 14px; border-radius: 3px; }
+.verdict.ok { background: var(--ok-soft); color: var(--ok); }
+.verdict.no { background: var(--seal-soft); color: var(--seal); }
+details.answer { margin-top: 26px; border-top: 1px dashed var(--line); padding-top: 14px; }
+details.answer summary { cursor: pointer; font-size: 13px; color: var(--muted); letter-spacing: .12em; list-style: none; display: inline-block; }
+details.answer summary::before { content: "▸ "; }
+details.answer[open] summary::before { content: "▾ "; }
+details.answer summary:hover { color: var(--seal); }
+footer.site { margin: 44px 0 12px; color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html">Puzzle<em>Bench</em></a>
+  <span class="site-sub">人测校准场 · 同一批题，AI 已交卷</span>
+</div></header>
+<main class="wrap">
+<div class="crumb"><a href="index.html">← 题目列表</a> · 合成变异</div>
+<div class="pz">
+  <div>
+    <div class="pz-title"><h1>dbg_mut_sum_range_range_bound_0</h1></div>
+    <div class="blk"><h3>规　则（与模型所读逐字一致）</h3><div class="rules"><pre>（本题没有文档字符串——规格即代码本身。）</pre></div></div>
+    <div class="blk"><h3>代　码（含故障，行号与 L4 提示对应）</h3><div class="code-wrap"><table><tr><td class="ln">1</td><td class="src">def sum_range(a: int, b: int) -&gt; int:</td></tr><tr><td class="ln">2</td><td class="src">    """Sum of the integers a..b inclusive (a &lt;= b)."""</td></tr><tr><td class="ln">3</td><td class="src">    total = 0</td></tr><tr><td class="ln">4</td><td class="src">    for i in range(a, b):</td></tr><tr><td class="ln">5</td><td class="src">        total += i</td></tr><tr><td class="ln">6</td><td class="src">    return total</td></tr></table></div></div>
+    <div class="blk"><h3>公开测试（可手动自查）</h3><div class="code-wrap"><table><tr><td class="ln">1</td><td class="src">def test_basic():</td></tr><tr><td class="ln">2</td><td class="src">    got = solution.sum_range(1, 4)</td></tr><tr><td class="ln">3</td><td class="src">    assert got == 10, f"expected 10, got {got}"</td></tr><tr><td class="ln">4</td><td class="src"> </td></tr></table></div></div>
+    <div class="blk"><h3>诊 断 题</h3><p class="gate-note">本题不设诊断题（该题库无 fault_choices 元数据）。</p></div>
+    <details class="answer"><summary>参考答案（建议先用提示）</summary>
+      <div class="blk" style="margin-top:12px"><div class="code-wrap"><table><tr><td class="ln">1</td><td class="src">def sum_range(a: int, b: int) -&gt; int:</td></tr><tr><td class="ln">2</td><td class="src">    """Sum of the integers a..b inclusive (a &lt;= b)."""</td></tr><tr><td class="ln">3</td><td class="src">    total = 0</td></tr><tr><td class="ln">4</td><td class="src">    for i in range(a, b + 1):</td></tr><tr><td class="ln">5</td><td class="src">        total += i</td></tr><tr><td class="ln">6</td><td class="src">    return total</td></tr></table></div></div>
+    </details>
+  </div>
+  <div class="side">
+    <div class="wallet" id="wallet"></div>
+    <div class="panel"><h3>提示阶梯</h3><div id="ladder"></div>
+      <p class="gate-note" style="margin-top:10px">提示内容按初始 buggy 状态生成，与模型第 0 回合所见一致。</p></div>
+    <div class="panel"><h3>谜题信息</h3>
+      <p class="gate-note">题库：synth<br>模块数：1<br>预算：5 币 · 定价 1/1/2/2/3</p></div>
+  </div>
+</div>
+</main>
+<footer class="site wrap">PuzzleBench · 预算化提示经济评测 · 人读版由机器版自动生成，勿手改</footer>
+<script>
+const TASK = {"id": "dbg_mut_sum_range_range_bound_0", "budget": 5, "levels": [1, 2, 3, 4, 5], "costs": {"1": 1, "2": 1, "3": 2, "4": 2, "5": 3}, "names": {"1": "L1 · 失败测试名", "2": "L2 · 断言详情", "3": "L3 · 栈摘要", "4": "L4 · 故障区域", "5": "L5 · 修复草图"}, "hints": {"1": "Failing hidden tests: test_basic, test_single, test_negative, test_large", "2": "Assertion details:\ntest_basic: expected 10, got 6\ntest_single: assertion\ntest_negative: expected 0, got -2\ntest_large: assertion", "3": "Stack trace for test_basic (trimmed):\n  File \"test_basic.py\", line 3, in test_basic\nAssertionError: expected 10, got 6", "4": "Fault region: solution.py lines 4-4", "5": "Fix sketch: The loop bound lost its offset."}, "choices": [], "answer": -1};
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("pbh." + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem("pbh." + k, JSON.stringify(v)); } catch {} },
+};
+let S = store.get(TASK.id, { coins: TASK.budget, hints: [], gate: false, probe: null });
+function save() { store.set(TASK.id, S); }
+function render() {
+  const hints = TASK.levels.map(lv => {
+    if (S.hints.includes(lv)) {
+      return `<button class="hint-btn bought" disabled><span>${TASK.names[lv]}</span><span class="cost">已购</span></button>
+        <div class="hint-body">${TASK.hints[lv]}</div>`;
+    }
+    const ok = S.coins >= TASK.costs[lv];
+    return `<button class="hint-btn" data-hint="${lv}" ${ok ? "" : "disabled"}>
+      <span>${TASK.names[lv]}</span><span class="cost">${TASK.costs[lv]} 币</span></button>`;
+  }).join("");
+  document.getElementById("wallet").innerHTML = `<span>提示币余额</span><b>${S.coins}</b>`;
+  document.getElementById("ladder").innerHTML = hints;
+  const probe = document.getElementById("probe");
+  if (!probe) return;
+  if (!S.gate) {
+    probe.innerHTML = `<p class="gate-note">诊断题在『修复完成』后才解锁——与模型同规则：先让测试全绿，再谈理解。</p>
+      <button class="btn" id="gate">我已修复，解锁诊断题</button>`;
+    return;
+  }
+  if (S.probe === null) {
+    probe.innerHTML = `<p class="gate-note">下面几个陈述只有一个是真的。<b>只有一次机会</b>，选好再点。</p>` +
+      TASK.choices.map((c, i) => `<button class="choice" data-choice="${i + 1}"><span class="no">${i + 1}</span><span>${c}</span></button>`).join("");
+    return;
+  }
+  const ok = S.probe === TASK.answer;
+  probe.innerHTML = TASK.choices.map((c, i) => {
+    const n = i + 1;
+    const cls = n === TASK.answer ? "right" : (n === S.probe ? "wrong" : "");
+    return `<button class="choice ${cls}" disabled><span class="no">${n}</span><span>${c}</span></button>`;
+  }).join("") + `<div class="verdict ${ok ? "ok" : "no"}">${ok
+    ? "✓ 答对了——你不仅修好了，也真懂了。"
+    : "✗ 答错。绿色的才是真相——你修好的方式可能对了，但故障陈述选错了。"}</div>`;
+}
+document.addEventListener("click", ev => {
+  const h = ev.target.closest("[data-hint]");
+  if (h) {
+    const lv = Number(h.dataset.hint);
+    if (!S.hints.includes(lv) && S.coins >= TASK.costs[lv]) { S.coins -= TASK.costs[lv]; S.hints.push(lv); save(); render(); }
+    return;
+  }
+  if (ev.target.closest("#gate")) { S.gate = true; save(); render(); return; }
+  const c = ev.target.closest("[data-choice]");
+  if (c && S.probe === null) { S.probe = Number(c.dataset.choice); save(); render(); }
+});
+render();
+
+</script>
+</body>
+</html>

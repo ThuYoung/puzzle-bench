@@ -20,6 +20,7 @@
 - **Track B5 体量升级**（`tasks_big.py`）：11 模块约 750 行的玩具数据库 minidb（types/lexer/parser/expr/store/index/agg/serde/query/txn/api），**3 个 bug 种在 3 个不同模块且每条违反的规则写在另一模块的 docstring**（比较契约在 dbtypes 文档、可见性规则在 dbapi 文档、NULL 排序契约在 dbstore 文档），症状只能经 dbapi.select 端到端暴露；聚合与序列化机制不藏 bug，纯作阅读负载与重写探测器；F2P/P2P 分区导入时断言（6 F2P + 21 P2P，含一条需双故障同修的交互测试）；pilot 动机：容量压强（注意力/检索上限）是七代题库全穿后剩余的体量杠杆——**结果：双臂 1 回合满分、诊断全对，容量压强同样证伪**
 - **Track B6 涌现式规则交互**（`tasks_emergent.py`）：2 道手写题（creditd 利息计提基数 × 多日复利 / voted 法定人数分母 × 缺席失权时机 × 连缺计数重置）。每道题的规则**各自在文档中精确写出、从不联合出现**——交集行为只能推导不能查表：同日存款当日计息（R1 期末余额 × R2 立即生效）、第二次连缺仍计入当次分母（R1 闭幕时分母 × R2 闭幕时生效）；buggy 代码用领域本能解开组合（期初余额惯例/单利批处理/先更新状态再计票/重新激活不清连缺）；公开测试避开一切组合边界（双方全绿），隐藏测试直击组合点（5+3 F2P，含跨故障交互题）
 - **诊断探针 + 手术精度**（判分侧升级）：任务携带 `fault_choices`（4 选 1 故障陈述，真相选项位置跨题打散，干扰项含"只中一半"与"规则方向说反"）；**解出后**才在 patch 回显里揭示选项（此前揭示=白送 L5），模型一次性 `PROBE: n` 作答，diagnosis 里程碑（0.10）分离"定位修复"与"蒙到全绿"，L5 购买污染之；`meta.surgical.precision` 统计最终 diff 落在 fault_region 内的行占比（定位修复=1.0，全文重写→0），只入 meta 不动权重
+- **双表征**（`banks.py` + `render_human.py`）：每道题都有两份——机器版 `DebugTask`（唯一事实源）与由它渲染的人读版 HTML 页面。`banks.py` 是共用 bank 注册表，保证模型跑批与人读渲染看到同一任务列表；`render_human.py` 为每题生成一个自足页面：逐字一致的 docstring 规格、带行号的 buggy 源码（与 L4 故障区域文本对齐）、公开测试、同价同文的 L1-L5 提示阶梯（提示文本按初始 buggy 状态生成）、一次性诊断题——人类解题者面对的信息与模型完全相同，可直接做人对模型的行为校准
 - **失败信号入回显**（`envs/debug.py`）：step 回显含隐藏测试**通过计数**（聚合信号免费）；具体是哪个测试/为何失败仍是 L1/L2 的商品——pilot 证明这是提示经济启动的必要条件（无信号时模型收到公开全绿即 DONE，以 0.06 分结束且零购买；有信号后出现首个完整经济 episode：失败→买 L1→按测试名修复→解出）
 - **沙箱执行**（`sandbox.py`）：常驻 worker 子进程 + 单测 SIGALRM 超时 + 死亡自动重生；env 与过滤器共用，真实模型 patch 永不进 harness 进程（进程级隔离，非容器；文件系统/网络限制是上真实榜前的要求）
 - **真实模型适配器**（`agents/llm.py`）：httpx 直连（无 SDK），双 provider——Anthropic 原生 + OpenAI 兼容（Moonshot/DeepSeek/vLLM/Kimi 同格式；reasoning-only 端点支持 `reasoning_effort` 透传）；协议 `BUY: k` / fenced patch / `PROBE: n` / `DONE`，畸形回复校正重试、瞬态错误退避、token 用量累计
@@ -59,6 +60,8 @@ puzzlebench/
   tasks_multifile.py # Track B4：多文件包（跨模块双故障，症状经接口暴露）
   tasks_big.py   # Track B5：11 模块玩具数据库（体量升级，跨模块契约故障）
   tasks_emergent.py # Track B6：涌现式规则交互（规则各自写明、交集需推导）
+  banks.py       # bank 注册表：load_bank 供模型跑批与人读渲染共用
+  render_human.py # 人读站点生成器：每题一个可交互 HTML 页面
   mutate.py      # 合成变异管道：算子/执行过滤/任务生成/CLI
   envs/wordle.py # 自检环境：解析、标记、一致性检查、提示发放、里程碑收割
   envs/debug.py  # 调试经济环境：沙箱测试执行、分级信息商品、区域一致性
@@ -79,6 +82,7 @@ uv run pytest                          # 125 个测试
 uv run python main.py                  # wordle demo
 uv run python main_debug.py            # Track B 调试经济 demo
 uv run python -m puzzlebench.mutate --per-seed 2 --hom-per-seed 1  # 生成合成题库
+uv run python -m puzzlebench.render_human          # 生成人读站点到 docs/
 
 # 真实模型评测（多模型）
 export HINTBENCH_ANTHROPIC_API_KEY=sk-ant-...   # 或 MOONSHOT_API_KEY / OPENAI_API_KEY

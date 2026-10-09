@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PuzzleBench 人测场</title>
+<style>
+:root {
+  --paper: #F6F7F3; --card: #FFFFFF; --ink: #222B33; --muted: #5C6770;
+  --line: #DDE1DA; --seal: #B03A2E; --seal-soft: #F7E9E6;
+  --coin: #B98A1C; --coin-soft: #F8F0DA; --ok: #2E6B4F; --ok-soft: #E4F0E9;
+  --code-bg: #F0F1EC; --shadow: 0 1px 2px rgba(34,43,51,.06);
+  --font-display: "Noto Serif SC", "Songti SC", serif;
+  --font-body: "Noto Sans SC", "PingFang SC", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #17191D; --card: #1E2126; --ink: #E4E0D6; --muted: #98A0A8;
+    --line: #33383F; --seal: #E0705F; --seal-soft: #36221F;
+    --coin: #D9A94A; --coin-soft: #332A18; --ok: #6FBF94; --ok-soft: #1E2F27;
+    --code-bg: #23262C; --shadow: 0 1px 2px rgba(0,0,0,.3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #17191D; --card: #1E2126; --ink: #E4E0D6; --muted: #98A0A8;
+  --line: #33383F; --seal: #E0705F; --seal-soft: #36221F;
+  --coin: #D9A94A; --coin-soft: #332A18; --ok: #6FBF94; --ok-soft: #1E2F27;
+  --code-bg: #23262C; --shadow: 0 1px 2px rgba(0,0,0,.3);
+  color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--font-body); line-height: 1.75; }
+* { box-sizing: border-box; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; }
+button { font-family: var(--font-body); cursor: pointer; }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+.site-head { border-bottom: 2px solid var(--ink); padding: 14px 0; margin-bottom: 28px; }
+.site-head .wrap { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.brand { font-family: var(--font-display); font-size: 22px; font-weight: 700; text-decoration: none; color: var(--ink); }
+.brand em { font-style: normal; color: var(--seal); }
+.site-sub { color: var(--muted); font-size: 13px; letter-spacing: .06em; }
+.wrap { max-width: 1060px; margin: 0 auto; }
+.intro { max-width: 68ch; margin-bottom: 26px; }
+.intro p { margin: 0 0 10px; }
+.intro .proto { font-size: 13.5px; color: var(--muted); border-left: 3px solid var(--coin); padding-left: 12px; }
+.bank-h { font-size: 15px; letter-spacing: .12em; color: var(--muted); margin: 26px 0 10px; font-weight: 600; }
+.deck { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 12px 16px;
+  box-shadow: var(--shadow); text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+.card:hover { border-color: var(--ink); }
+.card .tid { font-family: var(--font-mono); font-size: 12.5px; flex: 1; }
+.card .meta { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.stamp { display: inline-block; font-family: var(--font-display); font-weight: 700; color: var(--seal);
+  border: 2px solid var(--seal); border-radius: 3px; padding: 0 8px; font-size: 12px; letter-spacing: .2em;
+  transform: rotate(-3deg); opacity: .9; }
+.stamp.ok { color: var(--ok); border-color: var(--ok); }
+.crumb { font-size: 13px; margin-bottom: 14px; }
+.crumb a { color: var(--muted); text-decoration: none; }
+.crumb a:hover { color: var(--ink); }
+.pz { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 26px; align-items: start; }
+@media (max-width: 860px) { .pz { grid-template-columns: 1fr; } }
+.pz-title { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.pz-title h1 { margin: 0; font-size: 24px; font-family: var(--font-mono); font-weight: 600; }
+.blk { margin-bottom: 22px; }
+.blk > h3 { font-size: 14px; letter-spacing: .18em; color: var(--muted); margin: 0 0 8px;
+  font-family: var(--font-body); font-weight: 600; }
+.rules { background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 14px 18px; }
+.rules .doc-label { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); margin-bottom: 4px; }
+.rules pre { margin: 0 0 12px; white-space: pre-wrap; font-family: var(--font-body); font-size: 14px; line-height: 1.7; }
+.rules pre:last-child { margin-bottom: 0; }
+.mod-label { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin: 14px 0 4px; }
+.code-wrap { background: var(--code-bg); border: 1px solid var(--line); border-radius: 3px; overflow-x: auto;
+  font-family: var(--font-mono); font-size: 12.8px; line-height: 1.6; }
+.code-wrap table { border-collapse: collapse; width: 100%; }
+.code-wrap td { padding: 0; vertical-align: top; }
+.code-wrap td.ln { text-align: right; color: var(--muted); opacity: .65; padding: 0 10px 0 14px;
+  user-select: none; width: 1%; border-right: 1px solid var(--line); }
+.code-wrap td.src { padding: 0 14px 0 12px; white-space: pre; }
+.code-wrap tr:first-child td { padding-top: 10px; }
+.code-wrap tr:last-child td { padding-bottom: 10px; }
+.side { display: flex; flex-direction: column; gap: 16px; position: sticky; top: calc(env(safe-area-inset-top,0px) + 12px); }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 14px 16px; box-shadow: var(--shadow); }
+.panel h3 { margin: 0 0 10px; font-size: 13px; letter-spacing: .18em; color: var(--muted); font-weight: 600; }
+.wallet { display: flex; align-items: center; justify-content: space-between; background: var(--coin-soft);
+  border: 1px solid var(--coin); border-radius: 3px; padding: 10px 14px; font-size: 14px; }
+.wallet b { font-family: var(--font-mono); font-size: 18px; color: var(--coin); font-variant-numeric: tabular-nums; }
+.hint-btn { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 8px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 8px 12px; margin-top: 8px;
+  font-size: 13.5px; color: var(--ink); text-align: left; }
+.hint-btn:hover:not(:disabled) { border-color: var(--coin); }
+.hint-btn:disabled { opacity: .45; cursor: not-allowed; }
+.hint-btn .cost { font-family: var(--font-mono); color: var(--coin); font-size: 12px; white-space: nowrap; }
+.hint-body { border: 1px solid var(--coin); border-top: none; background: var(--coin-soft);
+  padding: 10px 14px; font-size: 12.5px; border-radius: 0 0 3px 3px; font-family: var(--font-mono);
+  white-space: pre-wrap; word-break: break-word; }
+.bought { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-color: var(--coin); }
+.gate-note { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.btn { background: var(--ink); color: var(--paper); border: none; border-radius: 3px; padding: 9px 18px;
+  font-size: 14px; letter-spacing: .04em; }
+.btn:hover { opacity: .88; }
+.choice { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--line); border-radius: 3px;
+  background: var(--card); padding: 10px 14px; margin-top: 8px; font-size: 13.5px; width: 100%; text-align: left; }
+.choice .no { font-family: var(--font-mono); color: var(--muted); border: 1px solid var(--line);
+  border-radius: 2px; padding: 0 6px; flex: none; }
+.choice:hover:not(:disabled) { border-color: var(--ink); }
+.choice:disabled { cursor: default; }
+.choice.right { border-color: var(--ok); background: var(--ok-soft); }
+.choice.right .no { color: var(--ok); border-color: var(--ok); }
+.choice.wrong { border-color: var(--seal); background: var(--seal-soft); }
+.choice.wrong .no { color: var(--seal); border-color: var(--seal); }
+.verdict { margin-top: 12px; font-size: 14px; padding: 10px 14px; border-radius: 3px; }
+.verdict.ok { background: var(--ok-soft); color: var(--ok); }
+.verdict.no { background: var(--seal-soft); color: var(--seal); }
+details.answer { margin-top: 26px; border-top: 1px dashed var(--line); padding-top: 14px; }
+details.answer summary { cursor: pointer; font-size: 13px; color: var(--muted); letter-spacing: .12em; list-style: none; display: inline-block; }
+details.answer summary::before { content: "▸ "; }
+details.answer[open] summary::before { content: "▾ "; }
+details.answer summary:hover { color: var(--seal); }
+footer.site { margin: 44px 0 12px; color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html">Puzzle<em>Bench</em></a>
+  <span class="site-sub">人测校准场 · 同一批题，AI 已交卷</span>
+</div></header>
+<main class="wrap">
+<div class="intro">
+  <p>这里是 PuzzleBench 全库 85 道题的人读版。每道题的页面与模型面对的机器版由同一份 TaskSpec 生成：同一份规则文档、同一段 buggy 代码、同价同文的 L1-L5 提示阶梯、同一道诊断题。</p>
+  <p class="proto">规则：每题 <b>5 枚提示币</b>，提示逐级变贵变直白，买不买随你。读懂规则和代码，找出所有 bug；自觉修好后解锁诊断题，从故障陈述里选出真相——<b>只有一次机会</b>。页面无法替你跑隐藏测试，修复靠自觉，诊断见真章。做完一题，再对照该题的模型跑批记录（results/），就是一次人对模型的行为校准。</p>
+</div>
+<h2 class="bank-h">手工原型（4）</h2><div class="deck"><a class="card" href="dbg_hand_sum_up_to.html" data-task="dbg_hand_sum_up_to"><span class="tid">dbg_hand_sum_up_to</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_hand_clamp.html" data-task="dbg_hand_clamp"><span class="tid">dbg_hand_clamp</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_hand_palindrome.html" data-task="dbg_hand_palindrome"><span class="tid">dbg_hand_palindrome</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_hand_fizzbuzz.html" data-task="dbg_hand_fizzbuzz"><span class="tid">dbg_hand_fizzbuzz</span><span class="meta">无诊断题 · 1 模块</span></a></div><h2 class="bank-h">B2 · 反惯性系统（14）</h2><div class="deck"><a class="card" href="dbg_sys_buffer_stale_snapshot.html" data-task="dbg_sys_buffer_stale_snapshot"><span class="tid">dbg_sys_buffer_stale_snapshot</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_warehouse_cancel_leak.html" data-task="dbg_sys_warehouse_cancel_leak"><span class="tid">dbg_sys_warehouse_cancel_leak</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_scheduler_catchup.html" data-task="dbg_sys_scheduler_catchup"><span class="tid">dbg_sys_scheduler_catchup</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_ledger_release_credit.html" data-task="dbg_sys_ledger_release_credit"><span class="tid">dbg_sys_ledger_release_credit</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_history_alias.html" data-task="dbg_sys_history_alias"><span class="tid">dbg_sys_history_alias</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_config_alias.html" data-task="dbg_sys_config_alias"><span class="tid">dbg_sys_config_alias</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_rank_tie_order.html" data-task="dbg_sys_rank_tie_order"><span class="tid">dbg_sys_rank_tie_order</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_rebate_half_up.html" data-task="dbg_sys_rebate_half_up"><span class="tid">dbg_sys_rebate_half_up</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_window_exclusive.html" data-task="dbg_sys_window_exclusive"><span class="tid">dbg_sys_window_exclusive</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_merge_tie_a_first.html" data-task="dbg_sys_merge_tie_a_first"><span class="tid">dbg_sys_merge_tie_a_first</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_split_keeps_empties.html" data-task="dbg_sys_split_keeps_empties"><span class="tid">dbg_sys_split_keeps_empties</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_clamp_edges.html" data-task="dbg_sys_clamp_edges"><span class="tid">dbg_sys_clamp_edges</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_div_floor.html" data-task="dbg_sys_div_floor"><span class="tid">dbg_sys_div_floor</span><span class="meta">1 模块</span></a><a class="card" href="dbg_sys_percent_trunc.html" data-task="dbg_sys_percent_trunc"><span class="tid">dbg_sys_percent_trunc</span><span class="meta">1 模块</span></a></div><h2 class="bank-h">B3 · 表达式语言（2）</h2><div class="deck"><a class="card" href="dbg_expr_zolarith_grammar.html" data-task="dbg_expr_zolarith_grammar"><span class="tid">dbg_expr_zolarith_grammar</span><span class="meta">1 模块</span></a><a class="card" href="dbg_expr_zoologic_grammar.html" data-task="dbg_expr_zoologic_grammar"><span class="tid">dbg_expr_zoologic_grammar</span><span class="meta">1 模块</span></a></div><h2 class="bank-h">B4 · 多文件包（2）</h2><div class="deck"><a class="card" href="dbg_multi_zelang_grammar.html" data-task="dbg_multi_zelang_grammar"><span class="tid">dbg_multi_zelang_grammar</span><span class="meta">3 模块</span></a><a class="card" href="dbg_multi_ledgerd_alias_credit.html" data-task="dbg_multi_ledgerd_alias_credit"><span class="tid">dbg_multi_ledgerd_alias_credit</span><span class="meta">3 模块</span></a></div><h2 class="bank-h">B5 · 大体量 minidb（1）</h2><div class="deck"><a class="card" href="dbg_big_minidb_contracts.html" data-task="dbg_big_minidb_contracts"><span class="tid">dbg_big_minidb_contracts</span><span class="meta">11 模块</span></a></div><h2 class="bank-h">B6 · 涌现式规则交互（2）</h2><div class="deck"><a class="card" href="dbg_em_credit_accrual.html" data-task="dbg_em_credit_accrual"><span class="tid">dbg_em_credit_accrual</span><span class="meta">1 模块</span></a><a class="card" href="dbg_em_chamber_quorum.html" data-task="dbg_em_chamber_quorum"><span class="tid">dbg_em_chamber_quorum</span><span class="meta">1 模块</span></a></div><h2 class="bank-h">合成变异（43）</h2><div class="deck"><a class="card" href="dbg_mut_median3_return_swap_0.html" data-task="dbg_mut_median3_return_swap_0"><span class="tid">dbg_mut_median3_return_swap_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_median3_return_swap_1.html" data-task="dbg_mut_median3_return_swap_1"><span class="tid">dbg_mut_median3_return_swap_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_median3_hom_cmp_flip_return_swap_negate_condition_2.html" data-task="dbg_mut_median3_hom_cmp_flip_return_swap_negate_condition_2"><span class="tid">dbg_mut_median3_hom_cmp_flip_return_swap_negate_condition_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_count_vowels_const_bump_0.html" data-task="dbg_mut_count_vowels_const_bump_0"><span class="tid">dbg_mut_count_vowels_const_bump_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_count_vowels_const_bump_1.html" data-task="dbg_mut_count_vowels_const_bump_1"><span class="tid">dbg_mut_count_vowels_const_bump_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_count_vowels_hom_const_bump_negate_condition_arith_swap_2.html" data-task="dbg_mut_count_vowels_hom_const_bump_negate_condition_arith_swap_2"><span class="tid">dbg_mut_count_vowels_hom_const_bump_negate_condition_arith_swap_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_binary_search_negate_condition_0.html" data-task="dbg_mut_binary_search_negate_condition_0"><span class="tid">dbg_mut_binary_search_negate_condition_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_binary_search_cmp_flip_1.html" data-task="dbg_mut_binary_search_cmp_flip_1"><span class="tid">dbg_mut_binary_search_cmp_flip_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_binary_search_hom_negate_condition_const_bump_cmp_flip_2.html" data-task="dbg_mut_binary_search_hom_negate_condition_const_bump_cmp_flip_2"><span class="tid">dbg_mut_binary_search_hom_negate_condition_const_bump_cmp_flip_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_collatz_steps_arith_swap_0.html" data-task="dbg_mut_collatz_steps_arith_swap_0"><span class="tid">dbg_mut_collatz_steps_arith_swap_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_collatz_steps_arith_swap_1.html" data-task="dbg_mut_collatz_steps_arith_swap_1"><span class="tid">dbg_mut_collatz_steps_arith_swap_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_collatz_steps_hom_arith_swap_const_bump_const_bump_2.html" data-task="dbg_mut_collatz_steps_hom_arith_swap_const_bump_const_bump_2"><span class="tid">dbg_mut_collatz_steps_hom_arith_swap_const_bump_const_bump_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_title_case_const_bump_0.html" data-task="dbg_mut_title_case_const_bump_0"><span class="tid">dbg_mut_title_case_const_bump_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_title_case_arith_swap_1.html" data-task="dbg_mut_title_case_arith_swap_1"><span class="tid">dbg_mut_title_case_arith_swap_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_title_case_hom_cmp_flip_arith_swap_arith_swap_2.html" data-task="dbg_mut_title_case_hom_cmp_flip_arith_swap_arith_swap_2"><span class="tid">dbg_mut_title_case_hom_cmp_flip_arith_swap_arith_swap_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_running_max_bool_swap_0.html" data-task="dbg_mut_running_max_bool_swap_0"><span class="tid">dbg_mut_running_max_bool_swap_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_running_max_negate_condition_1.html" data-task="dbg_mut_running_max_negate_condition_1"><span class="tid">dbg_mut_running_max_negate_condition_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_running_max_hom_bool_swap_bool_swap_bool_swap_2.html" data-task="dbg_mut_running_max_hom_bool_swap_bool_swap_bool_swap_2"><span class="tid">dbg_mut_running_max_hom_bool_swap_bool_swap_bool_swap_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_gcd_negate_condition_0.html" data-task="dbg_mut_gcd_negate_condition_0"><span class="tid">dbg_mut_gcd_negate_condition_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_gcd_cmp_flip_1.html" data-task="dbg_mut_gcd_cmp_flip_1"><span class="tid">dbg_mut_gcd_cmp_flip_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_gcd_hom_cmp_flip_const_bump_const_bump_2.html" data-task="dbg_mut_gcd_hom_cmp_flip_const_bump_const_bump_2"><span class="tid">dbg_mut_gcd_hom_cmp_flip_const_bump_const_bump_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_word_count_negate_condition_0.html" data-task="dbg_mut_word_count_negate_condition_0"><span class="tid">dbg_mut_word_count_negate_condition_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_word_count_cmp_flip_1.html" data-task="dbg_mut_word_count_cmp_flip_1"><span class="tid">dbg_mut_word_count_cmp_flip_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_word_count_hom_arith_swap_bool_swap_cmp_flip_2.html" data-task="dbg_mut_word_count_hom_arith_swap_bool_swap_cmp_flip_2"><span class="tid">dbg_mut_word_count_hom_arith_swap_bool_swap_cmp_flip_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_sum_range_range_bound_0.html" data-task="dbg_mut_sum_range_range_bound_0"><span class="tid">dbg_mut_sum_range_range_bound_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_sum_range_const_bump_1.html" data-task="dbg_mut_sum_range_const_bump_1"><span class="tid">dbg_mut_sum_range_const_bump_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_sum_range_hom_range_bound_arith_swap_range_bound_2.html" data-task="dbg_mut_sum_range_hom_range_bound_arith_swap_range_bound_2"><span class="tid">dbg_mut_sum_range_hom_range_bound_arith_swap_range_bound_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_merge_intervals_const_bump_0.html" data-task="dbg_mut_merge_intervals_const_bump_0"><span class="tid">dbg_mut_merge_intervals_const_bump_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_merge_intervals_const_bump_1.html" data-task="dbg_mut_merge_intervals_const_bump_1"><span class="tid">dbg_mut_merge_intervals_const_bump_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_merge_intervals_hom_const_bump_const_bump_const_bump_2.html" data-task="dbg_mut_merge_intervals_hom_const_bump_const_bump_const_bump_2"><span class="tid">dbg_mut_merge_intervals_hom_const_bump_const_bump_const_bump_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_rotated_search_negate_condition_0.html" data-task="dbg_mut_rotated_search_negate_condition_0"><span class="tid">dbg_mut_rotated_search_negate_condition_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_rotated_search_cmp_flip_1.html" data-task="dbg_mut_rotated_search_cmp_flip_1"><span class="tid">dbg_mut_rotated_search_cmp_flip_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_rotated_search_hom_const_bump_const_bump_const_bump_2.html" data-task="dbg_mut_rotated_search_hom_const_bump_const_bump_const_bump_2"><span class="tid">dbg_mut_rotated_search_hom_const_bump_const_bump_const_bump_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_max_nesting_arith_swap_0.html" data-task="dbg_mut_max_nesting_arith_swap_0"><span class="tid">dbg_mut_max_nesting_arith_swap_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_max_nesting_const_bump_1.html" data-task="dbg_mut_max_nesting_const_bump_1"><span class="tid">dbg_mut_max_nesting_const_bump_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_max_nesting_hom_const_bump_const_bump_cmp_flip_2.html" data-task="dbg_mut_max_nesting_hom_const_bump_const_bump_cmp_flip_2"><span class="tid">dbg_mut_max_nesting_hom_const_bump_const_bump_cmp_flip_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_rle_encode_const_bump_0.html" data-task="dbg_mut_rle_encode_const_bump_0"><span class="tid">dbg_mut_rle_encode_const_bump_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_rle_encode_const_bump_1.html" data-task="dbg_mut_rle_encode_const_bump_1"><span class="tid">dbg_mut_rle_encode_const_bump_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_rle_encode_hom_const_bump_const_bump_cmp_flip_2.html" data-task="dbg_mut_rle_encode_hom_const_bump_const_bump_cmp_flip_2"><span class="tid">dbg_mut_rle_encode_hom_const_bump_const_bump_cmp_flip_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_circular_window_max_range_bound_0.html" data-task="dbg_mut_circular_window_max_range_bound_0"><span class="tid">dbg_mut_circular_window_max_range_bound_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_longest_plateau_const_bump_0.html" data-task="dbg_mut_longest_plateau_const_bump_0"><span class="tid">dbg_mut_longest_plateau_const_bump_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_longest_plateau_arith_swap_1.html" data-task="dbg_mut_longest_plateau_arith_swap_1"><span class="tid">dbg_mut_longest_plateau_arith_swap_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_longest_plateau_hom_const_bump_const_bump_const_bump_2.html" data-task="dbg_mut_longest_plateau_hom_const_bump_const_bump_const_bump_2"><span class="tid">dbg_mut_longest_plateau_hom_const_bump_const_bump_const_bump_2</span><span class="meta">无诊断题 · 1 模块</span></a></div><h2 class="bank-h">新规格变异（17）</h2><div class="deck"><a class="card" href="dbg_mut_echo_calendar_const_bump_0.html" data-task="dbg_mut_echo_calendar_const_bump_0"><span class="tid">dbg_mut_echo_calendar_const_bump_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_echo_calendar_cmp_flip_1.html" data-task="dbg_mut_echo_calendar_cmp_flip_1"><span class="tid">dbg_mut_echo_calendar_cmp_flip_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_echo_calendar_hom_arith_swap_const_bump_const_bump_2.html" data-task="dbg_mut_echo_calendar_hom_arith_swap_const_bump_const_bump_2"><span class="tid">dbg_mut_echo_calendar_hom_arith_swap_const_bump_const_bump_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_tide_encode_cmp_flip_0.html" data-task="dbg_mut_tide_encode_cmp_flip_0"><span class="tid">dbg_mut_tide_encode_cmp_flip_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_tide_encode_const_bump_1.html" data-task="dbg_mut_tide_encode_const_bump_1"><span class="tid">dbg_mut_tide_encode_const_bump_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_tide_encode_hom_const_bump_arith_swap_arith_swap_2.html" data-task="dbg_mut_tide_encode_hom_const_bump_arith_swap_arith_swap_2"><span class="tid">dbg_mut_tide_encode_hom_const_bump_arith_swap_arith_swap_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_mirror_walk_const_bump_0.html" data-task="dbg_mut_mirror_walk_const_bump_0"><span class="tid">dbg_mut_mirror_walk_const_bump_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_mirror_walk_arith_swap_1.html" data-task="dbg_mut_mirror_walk_arith_swap_1"><span class="tid">dbg_mut_mirror_walk_arith_swap_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_mirror_walk_hom_const_bump_const_bump_cmp_flip_2.html" data-task="dbg_mut_mirror_walk_hom_const_bump_const_bump_cmp_flip_2"><span class="tid">dbg_mut_mirror_walk_hom_const_bump_const_bump_cmp_flip_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_balanced_ternary_const_bump_0.html" data-task="dbg_mut_balanced_ternary_const_bump_0"><span class="tid">dbg_mut_balanced_ternary_const_bump_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_balanced_ternary_const_bump_1.html" data-task="dbg_mut_balanced_ternary_const_bump_1"><span class="tid">dbg_mut_balanced_ternary_const_bump_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_balanced_ternary_hom_const_bump_const_bump_const_bump_2.html" data-task="dbg_mut_balanced_ternary_hom_const_bump_const_bump_const_bump_2"><span class="tid">dbg_mut_balanced_ternary_hom_const_bump_const_bump_const_bump_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_skip_queue_range_bound_0.html" data-task="dbg_mut_skip_queue_range_bound_0"><span class="tid">dbg_mut_skip_queue_range_bound_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_skip_queue_const_bump_1.html" data-task="dbg_mut_skip_queue_const_bump_1"><span class="tid">dbg_mut_skip_queue_const_bump_1</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_skip_queue_hom_const_bump_range_bound_const_bump_2.html" data-task="dbg_mut_skip_queue_hom_const_bump_range_bound_const_bump_2"><span class="tid">dbg_mut_skip_queue_hom_const_bump_range_bound_const_bump_2</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_stutter_merge_cmp_flip_0.html" data-task="dbg_mut_stutter_merge_cmp_flip_0"><span class="tid">dbg_mut_stutter_merge_cmp_flip_0</span><span class="meta">无诊断题 · 1 模块</span></a><a class="card" href="dbg_mut_stutter_merge_cmp_flip_1.html" data-task="dbg_mut_stutter_merge_cmp_flip_1"><span class="tid">dbg_mut_stutter_merge_cmp_flip_1</span><span class="meta">无诊断题 · 1 模块</span></a></div>
+</main>
+<footer class="site wrap">PuzzleBench · 人读版由 puzzlebench.render_human 自动生成，勿手改</footer>
+<script>
+document.querySelectorAll("[data-task]").forEach(el => {
+  try {
+    const s = JSON.parse(localStorage.getItem("pbh." + el.dataset.task) || "null");
+    if (s && s.probe !== null && s.probe !== undefined) {
+      const ok = s.answer === undefined; // index does not know answers; stamp only
+      el.insertAdjacentHTML("beforeend", `<span class="stamp">已答</span>`);
+    }
+  } catch {}
+});
+</script>
+</body>
+</html>
